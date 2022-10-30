@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@view/*": ["src/view/*"],
+      "@routers/*": ["src/routers/*"],
+      "@shared/*": ["src/shared/*"]
+    }
+  }
+}

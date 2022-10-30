@@ -1,0 +1,107 @@
+@import "../styles/style";
+
+.auth-page {
+  width: 100%;
+  height: 100vh;
+
+  &__title {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  &__description {
+    text-align: center;
+    font-size: 15px;
+  }
+
+  &__left {
+    padding: 8rem;
+    background-color: $color-main-bg;
+
+    &__img {
+      @include flex(flex-start, center);
+      margin-bottom: 6rem;
+
+      img {
+        width: 40%;
+      }
+    }
+
+    a {
+      display: block;
+      text-align: center;
+    }
+
+    a:hover {
+      color: #e73f3f;
+      opacity: 0.8;
+    }
+
+    .ant-form-item {
+      margin-bottom: 1rem;
+
+      label {
+        font-size: 1.5rem;
+      }
+
+      .ant-input,
+      .ant-input-password {
+        border-radius: 0.5rem;
+      }
+
+      .ant-btn {
+        background-color: #ff9138;
+        border: none;
+        outline: none;
+        padding: 0.5rem 2.5rem 2.5rem 2.5rem;
+        margin-top: 2rem;
+        border-radius: 0.5rem;
+
+        &:hover {
+          opacity: 0.8;
+          transition: opacity 0.5s ease-in-out;
+        }
+      }
+    }
+  }
+
+  &__right {
+    text-align: left;
+    padding: 8rem 10rem 6rem 10rem;
+    position: relative;
+
+    &__img {
+      @include flex(center, flex-start);
+      img {
+        width: 70%;
+      }
+    }
+
+    &__content {
+      position: absolute;
+      right: 25%;
+      bottom: 40%;
+      font-size: 34px;
+
+      .title {
+        font-weight: bold;
+        font-size: 36px;
+      }
+    }
+  }
+}
+
+.cancel-btn {
+  background-color: transparent !important;
+  color: #ff9138;
+  border: 1px solid #ff9138 !important;
+  margin-right: 20px;
+  padding: 0 40px !important;
+
+  &:hover {
+    color: #ff9138;
+  }
+}

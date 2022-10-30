@@ -1,0 +1,76 @@
+@import "../styles/style";
+
+.homepage {
+  overflow: hidden;
+  height: 100vh;
+
+  &__left {
+    position: relative;
+    box-shadow: 0px 4px 6px rgba(219, 219, 219, 0.5);
+    border-radius: 16px 0px 0px 16px;
+
+    &__logoutBtn {
+      position: absolute;
+      bottom: 2rem;
+      background: #fff2e7;
+      color: #ff7506;
+      font-weight: 600;
+      text-shadow: none;
+      box-shadow: none;
+      border: none;
+      outline: none;
+      border-radius: 8px;
+      padding: 10px 60px 30px 10px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      img {
+        width: 18%;
+        margin-right: 10px;
+      }
+
+      &:hover {
+        background: #ff7506;
+        color: #fff;
+      }
+    }
+
+    &__img {
+      padding: 30px 60px;
+      img {
+        width: 100%;
+      }
+    }
+
+    .ant-tabs {
+      &-tab {
+        background-color: #fff !important;
+        padding-right: 40px !important;
+        border: none !important;
+
+        &:hover {
+          background-color: #fff2e7 !important;
+          color: #ff7506;
+        }
+
+        img {
+          width: 23%;
+          margin-right: 9px;
+        }
+
+        &-active {
+          background-color: #ff9138 !important;
+          border: none;
+
+          &:hover {
+            background-color: #ff9138 !important;
+          }
+
+          .ant-tabs-tab-btn {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
