@@ -1,0 +1,72 @@
+@import "../../../view/styles/style.scss";
+
+.select-box {
+  @include flex(flex-start, space-between);
+
+  &__left {
+    @include flex(flex-start, space-between);
+
+    &__item {
+      width: 200px;
+
+      &__label {
+        font-size: 16px;
+        color: #282739;
+        font-weight: bold;
+      }
+
+      & ~ & {
+        margin-left: 20px;
+      }
+    }
+  }
+
+  &__add {
+    @include flex(center, center);
+    flex-direction: column;
+    background: #fff2e7;
+    box-shadow: 0px 0px 6px #e7e9f2;
+    border-radius: 8px 0px 0px 8px;
+    padding: 2rem 4rem;
+    cursor: pointer;
+
+    &__icon {
+      background: #ff9138;
+      color: #fff;
+      font-size: 2rem;
+      padding: 0.5rem 1rem;
+      margin-bottom: 0.5rem;
+      border-radius: 1rem;
+    }
+
+    &__title {
+      @include flex(center, center);
+      font-weight: 700;
+      flex-direction: column;
+      color: #ff7506;
+    }
+  }
+}
+
+.ant-select {
+  font-size: 16px;
+  color: #535261;
+
+  &-selector {
+    border: 1.5px solid #d4d4d7 !important;
+    border-radius: 8px !important;
+  }
+
+  &-arrow {
+    color: #ff7506;
+    // background: #ff7506;
+  }
+
+  &-item-option-selected:not(.ant-select-item-option-disabled) {
+    background: #fff2e7;
+  }
+
+  &-dropdown {
+    border-radius: 0.6rem;
+  }
+}

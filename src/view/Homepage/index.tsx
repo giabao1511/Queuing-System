@@ -1,90 +1,118 @@
-import { Button, Col, Row, Tabs } from "antd";
-import "./style.scss";
+import {
+  AppstoreOutlined,
+  BarChartOutlined,
+  LaptopOutlined,
+  LogoutOutlined,
+  MessageOutlined,
+  ReadOutlined,
+  SettingOutlined,
+} from "@ant-design/icons";
+import { Button, Col, Row } from "antd";
+import { useState } from "react";
 import logo from "../../shared/assets/images/logo.png";
-import sidebarIcon_1 from "../../shared/assets/images/icons/sidebar-icon-1.png";
-import sidebarIcon_2 from "../../shared/assets/images/icons/sidebar-icon-2.png";
-import sidebarIcon_3 from "../../shared/assets/images/icons/sidebar-icon-3.png";
-import sidebarIcon_4 from "../../shared/assets/images/icons/sidebar-icon-4.png";
-import sidebarIcon_5 from "../../shared/assets/images/icons/sidebar-icon-5.png";
-import sidebarIcon_6 from "../../shared/assets/images/icons/sidebar-icon-6.png";
-import logoutIcon from "../../shared/assets/images/icons/logout-icon.png";
+import Dashboard from "./Dashboard/index";
+import TableLayout from "./components/TableLayout";
+import "./style.scss";
+import HomepageLayout from "./components/HomepageLayout";
+import Device from "./Device";
 
 const Homepage = () => {
+  const [childrenComponent, setChildrenComponent] = useState<
+    "" | React.ReactNode
+  >(<Dashboard />);
+
   const tabItems = [
     {
       label: (
-        <span>
-          <img src={sidebarIcon_1} alt="" /> Dashboard
-        </span>
+        <>
+          <AppstoreOutlined /> Dashboard
+        </>
       ),
-      key: "1",
-      children: "Hello",
-    }, // remember to pass the key prop
+      key: 1,
+      children: <Dashboard />,
+    },
     {
       label: (
-        <span>
-          <img src={sidebarIcon_2} alt="" /> Thiết bị
-        </span>
+        <>
+          <LaptopOutlined /> Thiết bị
+        </>
       ),
-      key: "2",
+      key: 2,
+      children: <Device />,
+    },
+    {
+      label: (
+        <>
+          <MessageOutlined /> Dịch vụ
+        </>
+      ),
+      key: 3,
       children: "Content 2",
     },
     {
       label: (
-        <span>
-          <img src={sidebarIcon_3} alt="" /> Dịch vụ
-        </span>
+        <>
+          <ReadOutlined /> Cấp số
+        </>
       ),
-      key: "3",
+      key: 4,
       children: "Content 2",
     },
     {
       label: (
-        <span>
-          <img src={sidebarIcon_4} alt="" /> Cấp số
-        </span>
+        <>
+          <BarChartOutlined /> Báo cáo
+        </>
       ),
-      key: "4",
+      key: 5,
       children: "Content 2",
     },
     {
       label: (
-        <span>
-          <img src={sidebarIcon_5} alt="" /> Báo cáo
-        </span>
+        <>
+          <SettingOutlined /> Cài đặt hệ thống
+        </>
       ),
-      key: "5",
-      children: "Content 2",
-    },
-    {
-      label: (
-        <span>
-          <img src={sidebarIcon_6} alt="" /> Cài đặt hệ thống
-        </span>
-      ),
-      key: "6",
+      key: 6,
       children: "Content 2",
     },
   ];
 
+  console.log(childrenComponent);
+
   return (
     <Row className="homepage">
-      <Col span={3} className="homepage__left">
-        <div className="homepage__left__img">
+      <Col span={3} className="homepage__sidebar">
+        <div className="homepage__sidebar__img">
           <img src={logo} alt="" />
         </div>
-        <Tabs tabPosition="left" type="card" items={tabItems} />
-        <Button
-          type="primary"
-          htmlType="submit"
-          className="homepage__left__logoutBtn"
-        >
-          <img src={logoutIcon} alt="" />
-          Đăng xuất
-        </Button>
+        <div className="homepage__sidebar__tab">
+          {tabItems.map((item) => (
+            <div
+              className="homepage__sidebar__tab__item"
+              key={item.key}
+              onClick={() => setChildrenComponent(item.children)}
+            >
+              <div className="homepage__sidebar__tab__item__label">
+                {item.label}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div>
+          <Button
+            type="primary"
+            htmlType="submit"
+            className="homepage__sidebar__logoutBtn"
+          >
+            <LogoutOutlined />
+            Đăng xuất
+          </Button>
+        </div>
       </Col>
-      <Col offset={14} span={7}>
-        1
+
+      <Col span={21} className="homepage__content">
+        <HomepageLayout>{childrenComponent}</HomepageLayout>
       </Col>
     </Row>
   );

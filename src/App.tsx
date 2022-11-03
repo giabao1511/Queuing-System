@@ -3,6 +3,7 @@ import ForgotPassword from "@view/Auth/ForgotPassword";
 import Login from "@view/Auth/Login/index";
 import SetNewPassword from "@view/Auth/SetNewPassword";
 import Homepage from "@view/Homepage";
+import AccountInfo from "@view/Homepage/components/AccountInfo";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           }
         />
         <Route path="/home" element={<Homepage />} />
+        <Route path="/profile" element={<AccountInfo />} />
       </Routes>
     </div>
   );

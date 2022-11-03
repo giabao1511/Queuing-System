@@ -1,0 +1,87 @@
+@import "../style.scss";
+
+.dashboard {
+  @include flex(flex-start, flex-start);
+
+  &__left {
+    max-width: 75%;
+  }
+
+  &-cards {
+    @include flex(flex-start, space-between);
+  }
+
+  &-card {
+    box-shadow: 2px 2px 15px rgba(70, 64, 67, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+
+    &__top {
+      @include flex(center, flex-start);
+      width: 80%;
+
+      img {
+        margin-right: 10px;
+      }
+
+      &__content {
+        font-size: 14px;
+        font-weight: 700;
+      }
+    }
+
+    &__bottom {
+      @include flex(center, space-between);
+      margin-top: 10px;
+
+      &__data {
+        font-size: 28px;
+        color: #535261;
+        font-weight: 700;
+      }
+
+      &__rate {
+        padding: 4px;
+        border-radius: 10px;
+        font-size: 8px;
+
+        &.increase {
+          background: rgba(255, 149, 1, 0.15);
+          color: #ff9138;
+        }
+
+        &.decrease {
+          background: rgba(231, 63, 63, 0.15);
+          color: #e73f3f;
+        }
+      }
+    }
+  }
+
+  &-card ~ &-card {
+    margin-left: 20px;
+  }
+
+  &__background {
+    height: 100vh;
+    width: 31%;
+    top: 0;
+    right: 0;
+    position: absolute;
+    background: #ffffff;
+  }
+
+  &__right {
+    position: absolute;
+    left: 0;
+    top: 100px;
+    margin-left: 2rem;
+    height: 100vh;
+
+    &__title {
+      color: #ff7506;
+      font-size: 2.4rem;
+      font-weight: bold;
+    }
+  }
+}
