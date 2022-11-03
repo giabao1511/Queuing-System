@@ -1,19 +1,85 @@
-import { Breadcrumb } from "antd";
-import React from "react";
+import { Badge, Table } from "antd";
+import "./style.scss";
 
 const TableLayout = () => {
-  return (
-    <div className="table-layout">
-      <Breadcrumb separator=">">
-        <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
-        <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
-      </Breadcrumb>
+  const dataSource = [
+    {
+      key: "1",
+      id: "KIO_01",
+      name: "Kiosk",
+      address: "102.168.1.10",
+      sad: "10 Downing Street",
+      addasdasress: "10 Downing Street",
+      adasdadress: "10 Downing Street",
+    },
+    {
+      key: "2",
+      name: "John",
+      age: 42,
+      address: "10 Downing Street",
+    },
+  ];
 
-      <div className="table-layout__title">Danh sách thiết bị</div>
-      <div className="table-layout__content">
-        
-      </div>
-    </div>
+  const columns = [
+    {
+      title: "Mã thiết bị",
+      dataIndex: "id",
+      key: "id",
+    },
+    {
+      title: "Tên thiết bị",
+      dataIndex: "name",
+      key: "name",
+    },
+    {
+      title: "Địa chỉ IP",
+      dataIndex: "address",
+      key: "address",
+    },
+    {
+      title: "Trạng thái hoạt động",
+      key: "status-active",
+      render: () => (
+        <span>
+          <Badge status="error" />
+          Hoạt động
+        </span>
+      ),
+    },
+    {
+      title: "Trạng thái kết nối",
+      key: "status-active",
+      render: () => (
+        <span>
+          <Badge status="success" />
+          Hoạt động
+        </span>
+      ),
+    },
+    {
+      title: "Dịch vụ sử dụng",
+      dataIndex: "status-active",
+      key: "status-active",
+    },
+    {
+      title: "",
+      dataIndex: "detail",
+      key: "detail",
+    },
+    {
+      title: "",
+      dataIndex: "detail",
+      key: "detail",
+    },
+  ];
+
+  return (
+    <Table
+      bordered
+      dataSource={dataSource}
+      columns={columns}
+      className="table-layout"
+    />
   );
 };
 

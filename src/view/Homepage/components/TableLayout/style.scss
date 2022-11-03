@@ -1,0 +1,14 @@
+.table-layout {
+  width: 90%;
+
+  thead tr th {
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    background: #ff9138;
+  }
+
+  tr:nth-child(even) {
+    background: #fff2e7;
+  }
+}

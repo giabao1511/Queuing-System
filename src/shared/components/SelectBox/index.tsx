@@ -2,8 +2,9 @@ import { PlusOutlined } from "@ant-design/icons";
 import { Select } from "antd";
 import Search from "antd/lib/input/Search";
 import "./style.scss";
+import { ISelectBox } from "./interface";
 
-const SelectBox = () => {
+const SelectBox = (props: ISelectBox) => {
   const handleChange = (value: string) => {
     console.log(`selected ${value}`);
   };
@@ -42,66 +43,45 @@ const SelectBox = () => {
   ];
 
   return (
-    <div className="select-box">
-      <div className="select-box__left">
-        <span className="select-box__left__item">
-          <div className="select-box__left__item__label">
-            Trạng thái hoạt động
-          </div>
-          <Select
-            defaultValue="all"
-            style={{ width: 200 }}
-            onChange={handleChange}
-            options={statusOpts}
+    <>
+      <div className="select-box">
+        <div className="select-box__left">
+          {props.statusActive && (
+            <div className="select-box__left__item">
+              <div className="select-box__left__item__label">
+                Trạng thái hoạt động
+              </div>
+              <Select
+                defaultValue="all"
+                style={{ width: 200 }}
+                onChange={handleChange}
+                options={statusOpts}
+              />
+            </div>
+          )}
+
+          {props.statusConnect && (
+            <div className="select-box__left__item">
+              <div className="select-box__left__item__label">
+                Trạng thái kết nối
+              </div>
+              <Select
+                defaultValue="all"
+                style={{ width: 200 }}
+                onChange={handleChange}
+                options={connectOpts}
+              />
+            </div>
+          )}
+        </div>
+        <div className="select-box__right">
+          <div className="select-box__left__item__label">Từ khóa</div>
+          <Search
+            placeholder="Nhập từ khóa"
+            onSearch={onSearch}
+            style={{ width: 250 }}
           />
-        </span>
-        <span className="select-box__left__item">
-          <div className="select-box__left__item__label">
-            Trạng thái hoạt động
-          </div>
-          <Select
-            defaultValue="lucy"
-            style={{ width: 200 }}
-            onChange={handleChange}
-            options={[
-              {
-                value: "jack",
-                label: "Jack",
-              },
-              {
-                value: "lucy",
-                label: "Lucy",
-              },
-              {
-                value: "disabled",
-                disabled: true,
-                label: "Disabled",
-              },
-              {
-                value: "Yiminghe",
-                label: "yiminghe",
-              },
-            ]}
-          />
-        </span>
-        <span className="select-box__left__item">
-          <div className="select-box__left__item__label">
-            Trạng thái hoạt động
-          </div>
-          <Select
-            defaultValue="all"
-            style={{ width: 200 }}
-            onChange={handleChange}
-            options={connectOpts}
-          />
-        </span>
-      </div>
-      <div className="select-box__right">
-        <Search
-          placeholder="input search text"
-          onSearch={onSearch}
-          style={{ width: 200 }}
-        />
+        </div>
       </div>
       <div className="select-box__add">
         <div className="select-box__add__icon">
@@ -112,7 +92,7 @@ const SelectBox = () => {
           <div>thiết bị</div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
