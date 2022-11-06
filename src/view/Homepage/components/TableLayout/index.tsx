@@ -1,4 +1,5 @@
 import { Badge, Table } from "antd";
+import { Link } from "react-router-dom";
 import "./style.scss";
 
 const TableLayout = () => {
@@ -8,15 +9,63 @@ const TableLayout = () => {
       id: "KIO_01",
       name: "Kiosk",
       address: "102.168.1.10",
-      sad: "10 Downing Street",
-      addasdasress: "10 Downing Street",
+      statusActive: false,
+      statusConnect: true,
       adasdadress: "10 Downing Street",
     },
     {
       key: "2",
-      name: "John",
-      age: 42,
-      address: "10 Downing Street",
+      id: "KIO_01",
+      name: "Kiosk",
+      address: "102.168.1.10",
+      statusActive: true,
+      statusConnect: true,
+      adasdadress: "10 Downing Street",
+    },
+    {
+      key: "3",
+      id: "KIO_01",
+      name: "Kiosk",
+      address: "102.168.1.10",
+      statusActive: false,
+      statusConnect: false,
+      adasdadress: "10 Downing Street",
+    },
+    {
+      key: "4",
+      id: "KIO_01",
+      name: "Kiosk",
+      address: "102.168.1.10",
+      statusActive: true,
+      statusConnect: true,
+      adasdadress: "10 Downing Street",
+    },
+    {
+      key: "5",
+      id: "KIO_01",
+      name: "Kiosk",
+      address: "102.168.1.10",
+      statusActive: false,
+      statusConnect: true,
+      adasdadress: "10 Downing Street",
+    },
+    {
+      key: "6",
+      id: "KIO_01",
+      name: "Kiosk",
+      address: "102.168.1.10",
+      statusActive: false,
+      statusConnect: true,
+      adasdadress: "10 Downing Street",
+    },
+    {
+      key: "7",
+      id: "KIO_01",
+      name: "Kiosk",
+      address: "102.168.1.10",
+      statusActive: true,
+      statusConnect: true,
+      adasdadress: "10 Downing Street",
     },
   ];
 
@@ -38,21 +87,23 @@ const TableLayout = () => {
     },
     {
       title: "Trạng thái hoạt động",
-      key: "status-active",
-      render: () => (
+      dataIndex: "statusActive",
+      key: "statusActive",
+      render: (status: boolean) => (
         <span>
-          <Badge status="error" />
-          Hoạt động
+          <Badge status={status ? "success" : "error"} />
+          {status ? "Hoạt động" : "Ngưng hoạt động"}
         </span>
       ),
     },
     {
       title: "Trạng thái kết nối",
-      key: "status-active",
-      render: () => (
+      dataIndex: "statusConnect",
+      key: "statusConnect",
+      render: (status: boolean) => (
         <span>
-          <Badge status="success" />
-          Hoạt động
+          <Badge status={status ? "success" : "error"} />
+          {status ? "Kết nối" : "Ngưng kết nối"}
         </span>
       ),
     },
@@ -63,13 +114,13 @@ const TableLayout = () => {
     },
     {
       title: "",
-      dataIndex: "detail",
       key: "detail",
+      render: () => <Link to="/home">Chi tiết</Link>,
     },
     {
       title: "",
-      dataIndex: "detail",
-      key: "detail",
+      key: "update",
+      render: () => <Link to="/home">Cập nhật</Link>,
     },
   ];
 

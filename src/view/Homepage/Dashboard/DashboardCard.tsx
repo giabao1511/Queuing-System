@@ -1,4 +1,4 @@
-import { IDashboardCard } from "./interface";
+import { IDashboardCard } from "../interface";
 
 const DashboardCard = (props: IDashboardCard) => {
   return (

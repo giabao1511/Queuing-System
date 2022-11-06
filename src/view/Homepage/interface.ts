@@ -5,3 +5,9 @@ export type IDashboardCard = {
   trend: boolean;
   rate: string;
 };
+
+export type IChildrenSidebar = {
+  label: React.ReactNode;
+  key: number;
+  route: string;
+};

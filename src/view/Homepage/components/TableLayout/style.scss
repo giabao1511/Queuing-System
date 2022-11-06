@@ -11,4 +11,12 @@
   tr:nth-child(even) {
     background: #fff2e7;
   }
+
+  .ant-badge {
+    margin-right: 0.5rem;
+  }
+
+  .ant-table-cell {
+    border-right-color: #fdeee3 !important;
+  }
 }

@@ -1,12 +1,13 @@
 import SelectBox from "@shared/components/SelectBox";
 import TableLayout from "../components/TableLayout";
+import "../style.scss";
 
 const Device = () => {
   return (
-    <div className="device">
+    <>
       <SelectBox statusActive={true} statusConnect={true} />
       <TableLayout />
-    </div>
+    </>
   );
 };
 

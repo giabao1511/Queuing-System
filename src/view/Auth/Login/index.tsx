@@ -6,7 +6,7 @@ const Login = () => {
 
   const onFinish = (values: any) => {
     console.log("Success:", values);
-    navigate("/home");
+    navigate("/dashboard");
   };
 
   const onFinishFailed = (errorInfo: any) => {

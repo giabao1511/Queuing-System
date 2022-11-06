@@ -25,8 +25,12 @@
 
       &__item {
         padding: 1.5rem;
-        background-color: #ff7506;
-        color: #fff;
+        cursor: pointer;
+
+        &.active {
+          background-color: #ff7506;
+          color: #fff;
+        }
 
         &__label {
           span {
