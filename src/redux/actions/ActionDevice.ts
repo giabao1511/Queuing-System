@@ -1,4 +1,4 @@
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, onSnapshot } from "firebase/firestore";
 import db from "../../firebase/db";
 import * as types from "../actionTypes";
 import { IDevice } from "../interface";
@@ -31,15 +31,23 @@ export const createDeviceFail = (error?: any) => ({
   payload: error,
 });
 
-// export const getAllDeviceInitiate = () => async (dispatch: any) => {
-//   try {
-//     dispatch(getAllDeviceStart());
+export const getAllDeviceInitiate = () => async (dispatch: any) => {
+  try {
+    dispatch(getAllDeviceStart());
 
-//     const colRef = collection(db, "devices");
-//   } catch (error) {
-//     dispatch(getAllDeviceFail(error));
-//   }
-// };
+    const colRef = collection(db, "devices");
+    onSnapshot(colRef, (snapshot) => {
+      let devices: any[] = [];
+      snapshot.docs.forEach((doc) => {
+        devices.push({ ...doc.data(), id: doc.id });
+      });
+
+      dispatch(getAllDeviceSuccess(devices));
+    });
+  } catch (error) {
+    dispatch(getAllDeviceFail(error));
+  }
+};
 
 export const createDeviceInitiate =
   ({ deviceID, type, name, username, IPAddress, password, service }: IDevice) =>

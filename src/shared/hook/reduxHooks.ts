@@ -1,6 +1,6 @@
 import { TypedUseSelectorHook } from "react-redux";
 import { useSelector } from "react-redux";
-import { RootState } from "./../../modules/index";
+import { RootState } from "./../../redux/rootReducer";
 import { useDispatch } from "react-redux";
 import { AnyAction } from "redux";
 import { ThunkDispatch } from "redux-thunk";
