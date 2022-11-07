@@ -1,3 +1,4 @@
+import "./firebase/config";
 import AuthLayout from "@view/Auth/components/AuthLayout";
 import ForgotPassword from "@view/Auth/ForgotPassword";
 import Login from "@view/Auth/Login/index";

@@ -31,17 +31,19 @@
     }
   }
 
-  .ant-select-selection-item {
-    border-radius: 0.8rem;
-    background: #ffac6a;
-    color: #fff;
-    font-size: 14px;
-    border-color: #ffac6a;
-    margin: 0.5rem 0 2rem 0.5rem;
-  }
+  &__tags {
+    .ant-select-selection-item {
+      border-radius: 0.8rem;
+      background: #ffac6a;
+      color: #fff;
+      font-size: 14px;
+      border-color: #ffac6a;
+      margin: 0.5rem 0 2rem 0.5rem;
+    }
 
-  .anticon-close {
-    color: #fff;
+    .anticon-close {
+      color: #fff;
+    }
   }
 
   .ant-btn {

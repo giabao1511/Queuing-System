@@ -1,7 +1,8 @@
+import { useAppDispatch } from "@shared/hook/reduxHooks";
 import type { SelectProps } from "antd";
 import { Button, Form, Input, Select } from "antd";
-import { Option } from "antd/lib/mentions";
 import { useNavigate } from "react-router-dom";
+import { createDeviceInitiate } from "../../../redux/actions/ActionDevice";
 import "./style.scss";
 
 const AddDevice = () => {
@@ -33,10 +34,11 @@ const AddDevice = () => {
   ];
 
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const onFinish = (values: any) => {
-    console.log("Success:", values);
-    navigate("/home");
+    dispatch(createDeviceInitiate(values));
+    navigate("/device/add");
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -44,6 +46,8 @@ const AddDevice = () => {
   };
 
   const handleChange = (value: string) => {
+    console.log(value);
+
     console.log(`selected ${value}`);
   };
 
@@ -75,7 +79,7 @@ const AddDevice = () => {
 
         <Form.Item
           label="Loại thiết bị"
-          name="deviceType"
+          name="type"
           rules={[{ required: true, message: "Mời nhập mật khẩu!" }]}
           style={{
             display: "inline-block",
@@ -83,14 +87,16 @@ const AddDevice = () => {
           }}
         >
           <Select placeholder="Chọn loại thiết bị" allowClear>
-            <Option value="kiosk">Kiosk</Option>
-            <Option value="display-counter">Display counter</Option>
+            <Select.Option value="kiosk">Kiosk</Select.Option>
+            <Select.Option value="display-counter">
+              Display counter
+            </Select.Option>
           </Select>
         </Form.Item>
 
         <Form.Item
           label="Tên thiết bị"
-          name="deviceName"
+          name="name"
           rules={[{ required: true, message: "Mời nhập tên thiết bị!" }]}
           style={{
             display: "inline-block",
@@ -139,6 +145,7 @@ const AddDevice = () => {
         </Form.Item>
 
         <Form.Item
+          className="form__tags"
           label="Dịch vụ sử dụng"
           name="service"
           rules={[{ required: true, message: "Mời nhập dịch vụ sử dụng!" }]}

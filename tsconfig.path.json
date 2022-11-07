@@ -4,7 +4,8 @@
     "paths": {
       "@view/*": ["src/view/*"],
       "@routers/*": ["src/routers/*"],
-      "@shared/*": ["src/shared/*"]
+      "@shared/*": ["src/shared/*"],
+      "@redux/*": ["src/redux/*"]
     }
   }
 }
