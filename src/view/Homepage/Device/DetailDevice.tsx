@@ -115,7 +115,7 @@ const DetailDevice = () => {
 
       <SideButton
         icon={<EditFilled />}
-        route="/device/update"
+        route={`/device/update/${detailDevice?.id}`}
         textTop="Cập nhật"
         textBottom="thiết bị"
       />

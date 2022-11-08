@@ -59,12 +59,13 @@ const Device = () => {
       title: "",
       key: "id",
       dataIndex: "id",
-      render: (id: any) => <Link to={`/device/${id}`}>Chi tiết</Link>,
+      render: (id: any) => <Link to={`/device/detail/${id}`}>Chi tiết</Link>,
     },
     {
       title: "",
-      key: "update",
-      render: () => <Link to="/home">Cập nhật</Link>,
+      key: "id",
+      dataIndex: "id",
+      render: (id: any) => <Link to={`/device/update/${id}`}>Cập nhật</Link>,
     },
   ];
 

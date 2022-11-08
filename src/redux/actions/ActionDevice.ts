@@ -1,4 +1,10 @@
-import { addDoc, collection, doc, onSnapshot } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  doc,
+  onSnapshot,
+  updateDoc,
+} from "firebase/firestore";
 import db from "../../firebase/db";
 import * as types from "../actionTypes";
 import { IDevice } from "../interface";
@@ -45,22 +51,35 @@ export const getDetailDeviceFail = (error?: any) => ({
   payload: error,
 });
 
-export const getDetailDeviceInitiate =
-  (id: any) => async (dispatch: any) => {
-    try {
-      dispatch(getDetailDeviceStart());
+export const updateDeviceStart = () => ({
+  type: types.UPDATE_DEVICE_START,
+});
 
-      const docRef = doc(db, "devices", id);
+export const updateDeviceSuccess = (data?: any) => ({
+  type: types.UPDATE_DEVICE_SUCCESS,
+  payload: data,
+});
 
-      onSnapshot(docRef, (snapshot) => {
-        let device: any = {};
-        device = snapshot.data();
-        dispatch(getDetailDeviceSuccess({ ...device, id }));
-      });
-    } catch (error) {
-      dispatch(getDetailDeviceFail(error));
-    }
-  };
+export const updateDeviceFail = (error?: any) => ({
+  type: types.UPDATE_DEVICE_FAIL,
+  payload: error,
+});
+
+export const getDetailDeviceInitiate = (id: any) => async (dispatch: any) => {
+  try {
+    dispatch(getDetailDeviceStart());
+
+    const docRef = doc(db, "devices", id);
+    let device: any = {};
+
+    onSnapshot(docRef, (snapshot) => {
+      device = snapshot.data();
+      dispatch(getDetailDeviceSuccess({ ...device, id }));
+    });
+  } catch (error) {
+    dispatch(getDetailDeviceFail(error));
+  }
+};
 
 export const getAllDeviceInitiate = () => async (dispatch: any) => {
   try {
@@ -96,10 +115,43 @@ export const createDeviceInitiate =
         IPAddress,
         password,
         service,
+      }).then(() => {
+        dispatch(createDeviceSuccess({ message: "Success" }));
       });
-
-      dispatch(createDeviceSuccess({ message: "Success" }));
     } catch (error) {
       dispatch(createDeviceFail(error));
+    }
+  };
+
+export const updateDeviceInitiate =
+  ({
+    id,
+    deviceID,
+    type,
+    name,
+    username,
+    IPAddress,
+    password,
+    service,
+  }: IDevice) =>
+  async (dispatch: any) => {
+    try {
+      dispatch(updateDeviceStart());
+
+      const docRef = doc(db, "devices", id);
+
+      updateDoc(docRef, {
+        deviceID,
+        type,
+        name,
+        username,
+        IPAddress,
+        password,
+        service,
+      }).then(() => {
+        dispatch(updateDeviceSuccess({ message: "success" }));
+      });
+    } catch (error) {
+      dispatch(updateDeviceFail(error));
     }
   };

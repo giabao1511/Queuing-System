@@ -11,12 +11,14 @@ const deviceReducer = (state = initialState, action: any) => {
     case types.CREATE_DEVICES_START:
     case types.GET_ALL_DEVICES_START:
     case types.GET_DETAIL_DEVICE_START:
+    case types.UPDATE_DEVICE_START:
       return {
         ...state,
         loading: true,
       };
 
-    case types.CREATE_DEVICES_SUCCESS: {
+    case types.CREATE_DEVICES_SUCCESS:
+    case types.UPDATE_DEVICE_SUCCESS: {
       return {
         ...state,
         loading: false,
@@ -41,7 +43,8 @@ const deviceReducer = (state = initialState, action: any) => {
 
     case types.CREATE_DEVICES_FAIL:
     case types.GET_ALL_DEVICES_FAIL:
-    case types.GET_DETAIL_DEVICE_FAIL: {
+    case types.GET_DETAIL_DEVICE_FAIL:
+    case types.UPDATE_DEVICE_FAIL: {
       return {
         ...state,
         loading: false,

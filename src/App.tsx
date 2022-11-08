@@ -11,6 +11,7 @@ import Device from "@view/Homepage/Device";
 import AddDevice from "@view/Homepage/Device/AddDevice";
 import { Route, Routes } from "react-router-dom";
 import DetailDevice from "@view/Homepage/Device/DetailDevice";
+import UpdateDevice from "@view/Homepage/Device/UpdateDevice";
 
 function App() {
   return (
@@ -67,10 +68,19 @@ function App() {
           }
         />
         <Route
-          path="/device/:id"
+          path="/device/detail/:id"
           element={
             <HomepageLayout>
               <DetailDevice />
+            </HomepageLayout>
+          }
+        />
+
+        <Route
+          path="/device/update/:id"
+          element={
+            <HomepageLayout>
+              <UpdateDevice />
             </HomepageLayout>
           }
         />
