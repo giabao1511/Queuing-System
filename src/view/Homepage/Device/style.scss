@@ -1,3 +1,4 @@
+@import "../style.scss";
 .form {
   &__input {
     background: #ffffff;
@@ -58,5 +59,34 @@
       opacity: 0.8;
       transition: opacity 0.5s ease-in-out;
     }
+  }
+}
+
+.detail-page {
+  @include flex(flex-start, space-between);
+}
+
+.detail {
+  width: 90%;
+  padding: 2rem;
+  background: #ffffff;
+  box-shadow: 2px 2px 8px rgba(232, 239, 244, 0.8);
+  border-radius: 16px;
+  height: 75vh;
+  margin-right: 4rem;
+
+  &__title {
+    color: #282739;
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+
+  &__content {
+    color: #535261;
+    font-size: 1.6rem;
+  }
+
+  .ant-col {
+    margin-bottom: 0.8rem;
   }
 }

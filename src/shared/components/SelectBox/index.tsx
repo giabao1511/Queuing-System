@@ -1,9 +1,7 @@
-import { PlusOutlined } from "@ant-design/icons";
 import { Select } from "antd";
 import Search from "antd/lib/input/Search";
-import "./style.scss";
 import { ISelectBox } from "./interface";
-import { Link } from "react-router-dom";
+import "./style.scss";
 
 const SelectBox = (props: ISelectBox) => {
   const handleChange = (value: string) => {
@@ -84,17 +82,6 @@ const SelectBox = (props: ISelectBox) => {
           />
         </div>
       </div>
-      <Link to="/device/add">
-        <div className="select-box__add">
-          <div className="select-box__add__icon">
-            <PlusOutlined />
-          </div>
-          <div className="select-box__add__title">
-            <div>Thêm</div>
-            <div>thiết bị</div>
-          </div>
-        </div>
-      </Link>
     </>
   );
 };

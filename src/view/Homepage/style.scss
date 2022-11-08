@@ -93,3 +93,7 @@
     }
   }
 }
+
+.device__content {
+  @include flex(flex-start, space-between);
+}

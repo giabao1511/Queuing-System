@@ -9,27 +9,27 @@ const AddDevice = () => {
   const options: SelectProps["options"] = [
     {
       label: "Khám tim mạch",
-      value: "tim",
+      value: "Khám tim mạch",
     },
     {
       label: "Khám sản phụ khoa",
-      value: "phukhoa",
+      value: "Khám sản phụ khoa",
     },
     {
       label: "Khám răng hàm mặt",
-      value: "rang",
+      value: "Khám răng hàm mặt",
     },
     {
       label: "Khám tai mũi họng",
-      value: "tai",
+      value: "Khám tai mũi họng",
     },
     {
       label: "Khám hô hấp",
-      value: "hohap",
+      value: "Khám hô hấp",
     },
     {
       label: "Khám tổng quát",
-      value: "tongquat",
+      value: "Khám tổng quát",
     },
   ];
 
@@ -38,7 +38,7 @@ const AddDevice = () => {
 
   const onFinish = (values: any) => {
     dispatch(createDeviceInitiate(values));
-    navigate("/device/add");
+    navigate("/device");
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -46,8 +46,6 @@ const AddDevice = () => {
   };
 
   const handleChange = (value: string) => {
-    console.log(value);
-
     console.log(`selected ${value}`);
   };
 
@@ -87,8 +85,8 @@ const AddDevice = () => {
           }}
         >
           <Select placeholder="Chọn loại thiết bị" allowClear>
-            <Select.Option value="kiosk">Kiosk</Select.Option>
-            <Select.Option value="display-counter">
+            <Select.Option value="Kiosk">Kiosk</Select.Option>
+            <Select.Option value="Display counter">
               Display counter
             </Select.Option>
           </Select>

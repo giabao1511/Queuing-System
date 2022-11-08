@@ -3,12 +3,14 @@ const initialState = {
   loading: false,
   error: null,
   allDevices: null,
+  detailDevice: null,
 };
 
 const deviceReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case types.CREATE_DEVICES_START:
     case types.GET_ALL_DEVICES_START:
+    case types.GET_DETAIL_DEVICE_START:
       return {
         ...state,
         loading: true,
@@ -29,8 +31,17 @@ const deviceReducer = (state = initialState, action: any) => {
       };
     }
 
+    case types.GET_DETAIL_DEVICE_SUCCESS: {
+      return {
+        ...state,
+        loading: false,
+        detailDevice: action.payload,
+      };
+    }
+
     case types.CREATE_DEVICES_FAIL:
-    case types.GET_ALL_DEVICES_FAIL: {
+    case types.GET_ALL_DEVICES_FAIL:
+    case types.GET_DETAIL_DEVICE_FAIL: {
       return {
         ...state,
         loading: false,

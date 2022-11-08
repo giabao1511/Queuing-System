@@ -6,6 +6,8 @@ import { useAppDispatch, useAppSelector } from "@shared/hook/reduxHooks";
 import { getAllDeviceInitiate } from "../../../redux/actions/ActionDevice";
 import { Badge } from "antd";
 import { Link } from "react-router-dom";
+import SideButton from "@shared/components/SideButton";
+import { PlusOutlined } from "@ant-design/icons";
 
 const Device = () => {
   const dispatch = useAppDispatch();
@@ -55,8 +57,9 @@ const Device = () => {
     },
     {
       title: "",
-      key: "detail",
-      render: () => <Link to="/home">Chi tiết</Link>,
+      key: "id",
+      dataIndex: "id",
+      render: (id: any) => <Link to={`/device/${id}`}>Chi tiết</Link>,
     },
     {
       title: "",
@@ -68,14 +71,18 @@ const Device = () => {
   useEffect(() => {
     dispatch(getAllDeviceInitiate());
   }, [dispatch]);
-
-  useEffect(() => {
-    console.log(devices);
-  }, [devices]);
   return (
     <>
       <SelectBox statusActive={true} statusConnect={true} />
-      {devices && <TableLayout columns={columns} data={devices} />}
+      <div className="device__content">
+        {devices && <TableLayout columns={columns} data={devices} />}
+        <SideButton
+          route="/device/add"
+          icon={<PlusOutlined />}
+          textTop="Thêm"
+          textBottom="thiết bị"
+        />
+      </div>
     </>
   );
 };
