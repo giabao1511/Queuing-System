@@ -5,7 +5,7 @@ import {
   onSnapshot,
   updateDoc,
 } from "firebase/firestore";
-import db from "../../firebase/db";
+import { db } from "../../firebase/config";
 import * as types from "../actionTypes";
 import { IDevice } from "../interface";
 

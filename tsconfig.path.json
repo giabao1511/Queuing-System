@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@firebase/*": ["src/firebase/*"],
       "@view/*": ["src/view/*"],
       "@routers/*": ["src/routers/*"],
       "@shared/*": ["src/shared/*"],

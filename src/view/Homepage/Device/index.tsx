@@ -1,15 +1,18 @@
 import SelectBox from "@shared/components/SelectBox";
 import TableLayout from "../components/TableLayout";
 import "../style.scss";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@shared/hook/reduxHooks";
 import { getAllDeviceInitiate } from "../../../redux/actions/ActionDevice";
 import { Badge } from "antd";
 import { Link } from "react-router-dom";
 import SideButton from "@shared/components/SideButton";
 import { PlusOutlined } from "@ant-design/icons";
+import { truncateText } from "@shared/helper/functions";
 
 const Device = () => {
+  // const [openService, setOpenService] = useState(false);
+
   const dispatch = useAppDispatch();
   const devices = useAppSelector((state) => state.device.allDevices);
   const columns = [
@@ -52,26 +55,86 @@ const Device = () => {
     },
     {
       title: "Dịch vụ sử dụng",
-      dataIndex: "status-active",
-      key: "status-active",
+      dataIndex: "service",
+      key: "service",
+      render: (list: any) => (
+        <>
+          {/* {openService ? (
+            <>
+              <span
+                style={{
+                  position: "absolute",
+                  width: "350px",
+                  backgroundColor: "#fff",
+                  border: "1px solid #FFC89B",
+                  borderRadius: "8px",
+                  padding: "4px 8px",
+                  height: "100%",
+                  zIndex: 1000,
+                  top: "0px",
+                }}
+              >
+                {list.join(", ")}
+              </span>
+            </>
+          ) : (
+            <> */}
+          <span>{truncateText(list.join(", "), 20)}</span>,,
+          {/* </>
+          )} */}
+          <div
+            style={{
+              textDecoration: "underline",
+              color: "#4277FF",
+              cursor: "pointer",
+            }}
+            // onClick={() => setOpenService(true)}
+          >
+            Xem thêm
+          </div>
+        </>
+      ),
     },
     {
       title: "",
       key: "id",
       dataIndex: "id",
-      render: (id: any) => <Link to={`/device/detail/${id}`}>Chi tiết</Link>,
+      render: (id: any) => (
+        <Link
+          to={`/device/detail/${id}`}
+          style={{
+            textDecoration: "underline",
+            color: "#4277FF",
+            cursor: "pointer",
+          }}
+        >
+          Chi tiết
+        </Link>
+      ),
     },
     {
       title: "",
       key: "id",
       dataIndex: "id",
-      render: (id: any) => <Link to={`/device/update/${id}`}>Cập nhật</Link>,
+      render: (id: any) => (
+        <Link
+          to={`/device/update/${id}`}
+          style={{
+            textDecoration: "underline",
+            color: "#4277FF",
+            cursor: "pointer",
+          }}
+        >
+          Cập nhật
+        </Link>
+      ),
     },
   ];
 
   useEffect(() => {
     dispatch(getAllDeviceInitiate());
   }, [dispatch]);
+
   return (
     <>
       <SelectBox statusActive={true} statusConnect={true} />

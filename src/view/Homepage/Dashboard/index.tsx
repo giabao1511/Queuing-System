@@ -1,3 +1,6 @@
+import { onAuthStateChanged } from "firebase/auth";
+import { useState } from "react";
+import { auth } from "../../../firebase/config";
 import dashboardIcon_1 from "../../../shared/assets/images/icons/dashboard-icon-1.png";
 import dashboardIcon_2 from "../../../shared/assets/images/icons/dashboard-icon-2.png";
 import dashboardIcon_3 from "../../../shared/assets/images/icons/dashboard-icon-3.png";
@@ -7,6 +10,13 @@ import DashboardCard from "./DashboardCard";
 import "./style.scss";
 
 const Dashboard = () => {
+  const [user, setUser] = useState<any>({});
+
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+    console.log(user, "user");
+  });
+
   const cardData = [
     {
       icon: dashboardIcon_1,
@@ -61,6 +71,7 @@ const Dashboard = () => {
       <div className="dashboard__background">
         <div className="dashboard__right">
           <div className="dashboard__right__title">Tổng quan</div>
+          <div>{auth.currentUser?.email}</div>
         </div>
       </div>
     </div>

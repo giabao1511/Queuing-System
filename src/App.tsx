@@ -43,6 +43,14 @@ function App() {
         />
         <Route path="/home" element={<Homepage />} />
         <Route
+          path="/info"
+          element={
+            <HomepageLayout>
+              <AccountInfo />
+            </HomepageLayout>
+          }
+        />
+        <Route
           path="/dashboard"
           element={
             <HomepageLayout>

@@ -8,6 +8,8 @@ import { tabItems } from "@shared/data/sideBarData";
 import { useState } from "react";
 import { IChildrenSidebar } from "@view/Homepage/interface";
 import { useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../../../../firebase/config";
 
 const HomepageLayout: React.FC<PropsWithChildren<any>> = (props) => {
   const navigate = useNavigate();
@@ -19,6 +21,19 @@ const HomepageLayout: React.FC<PropsWithChildren<any>> = (props) => {
     console.log(item);
     setChildrenComponent(item);
     navigate(item.route);
+  };
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      navigate("/");
+    } catch (error: any) {
+      console.log(error.message);
+    }
+  };
+
+  const handleClickAvatar = () => {
+    navigate("/info");
   };
 
   return (
@@ -44,8 +59,7 @@ const HomepageLayout: React.FC<PropsWithChildren<any>> = (props) => {
         </div>
         <div>
           <Button
-            type="primary"
-            htmlType="submit"
+            onClick={handleLogout}
             className="homepage__sidebar__logoutBtn"
           >
             <LogoutOutlined />
@@ -63,7 +77,11 @@ const HomepageLayout: React.FC<PropsWithChildren<any>> = (props) => {
           </Breadcrumb>
           <div className="home-layout__title">Biểu đồ cấp số</div>
           <div className="home-layout__content">{props.children}</div>
-          <div className="home-layout__avatar">
+          <div
+            className="home-layout__avatar"
+            onClick={handleClickAvatar}
+            style={{ cursor: "pointer" }}
+          >
             <span className="home-layout__avatar__icon">
               <BellFilled />
             </span>

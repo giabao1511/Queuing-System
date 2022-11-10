@@ -1,12 +1,25 @@
+import { auth } from "../../../firebase/config";
 import { Button, Form, Input } from "antd";
+import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Login = () => {
   const navigate = useNavigate();
+  const [user, setUser] = useState<null | {}>({});
 
-  const onFinish = (values: any) => {
-    console.log("Success:", values);
-    navigate("/dashboard");
+  onAuthStateChanged(auth, (current) => {
+    setUser(current);
+  });
+  console.log(user, "userrr");
+
+  const onFinish = async (values: any) => {
+    try {
+      await signInWithEmailAndPassword(auth, values.username, values.password);
+      navigate("/dashboard");
+    } catch (error: any) {
+      console.log(error.message);
+    }
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -27,6 +40,8 @@ const Login = () => {
         <Form.Item
           label="Tên đăng nhập"
           name="username"
+          // validateStatus="error"
+          // help="hahsh"
           rules={[{ required: true, message: "Mời nhập tên đăng nhập!" }]}
         >
           <Input />

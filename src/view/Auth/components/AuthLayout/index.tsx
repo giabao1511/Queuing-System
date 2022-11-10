@@ -6,7 +6,7 @@ import authImg from "../../../../shared/assets/images/auth-img.png";
 
 const AuthLayout: React.FC<PropsWithChildren<any>> = (props) => {
   console.log("hello");
-  
+
   return (
     <>
       <Row className="auth-page">

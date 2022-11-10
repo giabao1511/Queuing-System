@@ -1,8 +1,6 @@
 import { tabItems } from "@shared/data/sideBarData";
-import { Col, Row } from "antd";
 import { useState } from "react";
 import HomepageLayout from "./components/HomepageLayout";
-import HomeSideBar from "./components/HomeSidebar";
 import { IChildrenSidebar } from "./interface";
 import "./style.scss";
 
