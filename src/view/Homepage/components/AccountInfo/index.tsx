@@ -7,8 +7,6 @@ const AccountInfo = () => {
   const [form] = Form.useForm();
 
   useEffect(() => {
-    console.log("hello");
-
     form.setFieldsValue({
       username: "Gia Bao",
       tel: "0339253073",
@@ -30,7 +28,7 @@ const AccountInfo = () => {
         <div className="info__avatar__name">Châu Gia Bảo</div>
       </Col>
 
-      <Col span={10} style={{paddingRight: "30px"}}>
+      <Col span={10} style={{ paddingRight: "30px" }}>
         <Form
           name="basic"
           layout="vertical"

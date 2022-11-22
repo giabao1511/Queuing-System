@@ -1,4 +1,5 @@
-import { Select } from "antd";
+import { CaretRightOutlined } from "@ant-design/icons";
+import { DatePicker, Select } from "antd";
 import Search from "antd/lib/input/Search";
 import { ISelectBox } from "./interface";
 import "./style.scss";
@@ -9,6 +10,7 @@ const SelectBox = (props: ISelectBox) => {
   };
 
   const onSearch = (value: string) => console.log(value);
+  const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY"];
 
   const statusOpts = [
     {
@@ -41,6 +43,26 @@ const SelectBox = (props: ISelectBox) => {
     },
   ];
 
+  const statusSeviceOpts = [
+    {
+      value: "all",
+      label: "Tất cả",
+    },
+
+    {
+      value: "done",
+      label: "Đã hoàn thành",
+    },
+    {
+      value: "doing",
+      label: "Đang thực hiện",
+    },
+    {
+      value: "absent",
+      label: "Vắng",
+    },
+  ];
+
   return (
     <>
       <div className="select-box">
@@ -56,6 +78,35 @@ const SelectBox = (props: ISelectBox) => {
                 onChange={handleChange}
                 options={statusOpts}
               />
+            </div>
+          )}
+
+          {props.statusService && (
+            <div className="select-box__left__item">
+              <div className="select-box__left__item__label">Trạng thái</div>
+              <Select
+                defaultValue="all"
+                style={{ width: 200 }}
+                onChange={handleChange}
+                options={statusSeviceOpts}
+              />
+            </div>
+          )}
+
+          {props.datePicker && (
+            <div className="select-box__left__item">
+              <div className="select-box__left__item__label">
+                Chọn thời gian
+              </div>
+              <DatePicker format={dateFormatList} placeholder="01/01/2015" />
+              <CaretRightOutlined
+                style={{
+                  fontSize: "8px",
+                  margin: "0px 10px",
+                  color: "#535261",
+                }}
+              />
+              <DatePicker format={dateFormatList} placeholder="01/01/2015" />
             </div>
           )}
 
@@ -78,7 +129,7 @@ const SelectBox = (props: ISelectBox) => {
           <Search
             placeholder="Nhập từ khóa"
             onSearch={onSearch}
-            style={{ width: 250 }}
+            style={{ width: `${props.searchSize === "small" ? "110px" : "250px"}` }}
           />
         </div>
       </div>

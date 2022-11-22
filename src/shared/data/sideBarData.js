@@ -4,9 +4,8 @@ import {
   LaptopOutlined,
   MessageOutlined,
   ReadOutlined,
-  SettingOutlined
+  SettingOutlined,
 } from "@ant-design/icons";
-
 
 export const tabItems = [
   {
@@ -34,7 +33,7 @@ export const tabItems = [
       </>
     ),
     key: 3,
-    route: "/home",
+    route: "/service",
   },
   {
     label: (
@@ -43,7 +42,7 @@ export const tabItems = [
       </>
     ),
     key: 4,
-    route: "/home",
+    route: "/provide",
   },
   {
     label: (

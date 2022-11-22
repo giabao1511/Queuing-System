@@ -12,6 +12,11 @@ import AddDevice from "@view/Homepage/Device/AddDevice";
 import { Route, Routes } from "react-router-dom";
 import DetailDevice from "@view/Homepage/Device/DetailDevice";
 import UpdateDevice from "@view/Homepage/Device/UpdateDevice";
+import Service from "@view/Homepage/components/Service";
+import AddService from "@view/Homepage/components/Service/AddService";
+import DetailService from "@view/Homepage/components/Service/DetailService";
+import UpdateSevice from "@view/Homepage/components/Service/UpdateSevice";
+import Provide from "@view/Homepage/components/Provide";
 
 function App() {
   return (
@@ -63,6 +68,70 @@ function App() {
           element={
             <HomepageLayout>
               <Device />
+            </HomepageLayout>
+          }
+        />
+        <Route
+          path="/service"
+          element={
+            <HomepageLayout>
+              <Service />
+            </HomepageLayout>
+          }
+        />
+        <Route
+          path="/service/detail/:id"
+          element={
+            <HomepageLayout>
+              <DetailService />
+            </HomepageLayout>
+          }
+        />
+        <Route
+          path="/service/update/:id"
+          element={
+            <HomepageLayout>
+              <UpdateSevice />
+            </HomepageLayout>
+          }
+        />
+        <Route
+          path="/service/add"
+          element={
+            <HomepageLayout>
+              <AddService />
+            </HomepageLayout>
+          }
+        />
+        <Route
+          path="/provide"
+          element={
+            <HomepageLayout>
+              <Provide />
+            </HomepageLayout>
+          }
+        />
+        <Route
+          path="/provide/detail/:id"
+          element={
+            <HomepageLayout>
+              <DetailService />
+            </HomepageLayout>
+          }
+        />
+        <Route
+          path="/provide/update/:id"
+          element={
+            <HomepageLayout>
+              <UpdateSevice />
+            </HomepageLayout>
+          }
+        />
+        <Route
+          path="/provide/add"
+          element={
+            <HomepageLayout>
+              <AddService />
             </HomepageLayout>
           }
         />

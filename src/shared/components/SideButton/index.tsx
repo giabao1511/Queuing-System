@@ -1,4 +1,3 @@
-import { PlusOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import "./style.scss";
 

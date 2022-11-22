@@ -86,6 +86,7 @@ export const getAllDeviceInitiate = () => async (dispatch: any) => {
     dispatch(getAllDeviceStart());
 
     const colRef = collection(db, "devices");
+    
     onSnapshot(colRef, (snapshot) => {
       let devices: any[] = [];
       snapshot.docs.forEach((doc) => {

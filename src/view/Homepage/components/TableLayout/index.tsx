@@ -1,5 +1,4 @@
-import { Badge, Table } from "antd";
-import { Link } from "react-router-dom";
+import { Table } from "antd";
 import "./style.scss";
 
 type ITable = {

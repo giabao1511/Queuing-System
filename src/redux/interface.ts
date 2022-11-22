@@ -8,3 +8,15 @@ export type IDevice = {
   password: string;
   service: [];
 };
+
+export type IService = {
+  id?: any;
+  serviceID: string;
+  name: string;
+  description: string;
+  min: number;
+  max: number;
+  prefix: string;
+  surfix: string;
+  isReset: boolean;
+};
