@@ -63,6 +63,50 @@ const SelectBox = (props: ISelectBox) => {
     },
   ];
 
+  const serviceOpts = [
+    {
+      value: "all",
+      label: "Tất cả",
+    },
+    {
+      value: "Khám tim mạch",
+      label: "Khám tim mạch",
+    },
+  ];
+
+  const statusProvide = [
+    {
+      value: "all",
+      label: "Tất cả",
+    },
+    {
+      value: "Đang chờ",
+      label: "Đang chờ",
+    },
+    {
+      value: "Đã sử dụng",
+      label: "Đã sử dụng",
+    },
+    {
+      value: "Bỏ qua",
+      label: "Bỏ qua",
+    },
+  ];
+
+  const sourceProvide = [
+    {
+      value: "all",
+      label: "Tất cả",
+    },
+    {
+      value: "Kiosk",
+      label: "Kiosk",
+    },
+    {
+      value: "Hệ thống",
+      label: "Hệ thống",
+    },
+  ];
   return (
     <>
       <div className="select-box">
@@ -74,7 +118,7 @@ const SelectBox = (props: ISelectBox) => {
               </div>
               <Select
                 defaultValue="all"
-                style={{ width: 200 }}
+                style={{ width: 180 }}
                 onChange={handleChange}
                 options={statusOpts}
               />
@@ -86,9 +130,45 @@ const SelectBox = (props: ISelectBox) => {
               <div className="select-box__left__item__label">Trạng thái</div>
               <Select
                 defaultValue="all"
-                style={{ width: 200 }}
+                style={{ width: 180 }}
                 onChange={handleChange}
                 options={statusSeviceOpts}
+              />
+            </div>
+          )}
+
+          {props.serviceType && (
+            <div className="select-box__left__item">
+              <div className="select-box__left__item__label">Tên dịch vụ</div>
+              <Select
+                defaultValue="all"
+                style={{ width: 180 }}
+                onChange={handleChange}
+                options={serviceOpts}
+              />
+            </div>
+          )}
+
+          {props.statusProvide && (
+            <div className="select-box__left__item">
+              <div className="select-box__left__item__label">Tình trạng</div>
+              <Select
+                defaultValue="all"
+                style={{ width: 180 }}
+                onChange={handleChange}
+                options={statusProvide}
+              />
+            </div>
+          )}
+
+          {props.sourceProvide && (
+            <div className="select-box__left__item">
+              <div className="select-box__left__item__label">Nguồn cấp</div>
+              <Select
+                defaultValue="all"
+                style={{ width: 180 }}
+                onChange={handleChange}
+                options={sourceProvide}
               />
             </div>
           )}
@@ -117,7 +197,7 @@ const SelectBox = (props: ISelectBox) => {
               </div>
               <Select
                 defaultValue="all"
-                style={{ width: 200 }}
+                style={{ width: 180 }}
                 onChange={handleChange}
                 options={connectOpts}
               />
@@ -129,7 +209,9 @@ const SelectBox = (props: ISelectBox) => {
           <Search
             placeholder="Nhập từ khóa"
             onSearch={onSearch}
-            style={{ width: `${props.searchSize === "small" ? "110px" : "250px"}` }}
+            style={{
+              width: `${props.searchSize === "small" ? "110px" : "250px"}`,
+            }}
           />
         </div>
       </div>

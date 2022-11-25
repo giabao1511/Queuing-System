@@ -17,6 +17,7 @@ import AddService from "@view/Homepage/components/Service/AddService";
 import DetailService from "@view/Homepage/components/Service/DetailService";
 import UpdateSevice from "@view/Homepage/components/Service/UpdateSevice";
 import Provide from "@view/Homepage/components/Provide";
+import AddProvide from "@view/Homepage/components/Provide/AddProvide";
 
 function App() {
   return (
@@ -120,18 +121,10 @@ function App() {
           }
         />
         <Route
-          path="/provide/update/:id"
-          element={
-            <HomepageLayout>
-              <UpdateSevice />
-            </HomepageLayout>
-          }
-        />
-        <Route
           path="/provide/add"
           element={
             <HomepageLayout>
-              <AddService />
+              <AddProvide />
             </HomepageLayout>
           }
         />

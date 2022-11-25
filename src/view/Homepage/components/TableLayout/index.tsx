@@ -13,8 +13,6 @@ type ITable = {
 };
 
 const TableLayout = (props: ITable) => {
-  console.log(props.columns, props.data);
-
   return (
     <Table
       bordered

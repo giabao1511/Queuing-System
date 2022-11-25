@@ -4,4 +4,7 @@ export type ISelectBox = {
   datePicker?: boolean;
   statusService?: boolean;
   searchSize?: string;
+  serviceType?: boolean;
+  statusProvide?: boolean;
+  sourceProvide?: boolean;
 };

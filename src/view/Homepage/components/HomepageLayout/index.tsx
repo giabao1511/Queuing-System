@@ -74,6 +74,9 @@ const HomepageLayout: React.FC<PropsWithChildren<any>> = (props) => {
             <Breadcrumb.Item className="home-layout__breadcrumb">
               Dashboard
             </Breadcrumb.Item>
+            <Breadcrumb.Item className="home-layout__breadcrumb">
+              Dashboard
+            </Breadcrumb.Item>
           </Breadcrumb>
           <div className="home-layout__title">Biểu đồ cấp số</div>
           <div className="home-layout__content">{props.children}</div>

@@ -12,8 +12,6 @@ const Service = () => {
   const dispatch = useAppDispatch();
   const services = useAppSelector((state) => state.service.allServices);
 
-  console.log(services, "sevices");
-
   const columns = [
     {
       title: "Mã dịch vụ",

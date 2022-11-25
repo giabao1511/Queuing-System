@@ -15,8 +15,6 @@ const DetailService = () => {
   const dispatch = useAppDispatch();
   const detailService = useAppSelector((state) => state.service.detailService);
 
-  console.log(detailService);
-
   const mockData = [
     {
       order: "201001",
@@ -94,7 +92,7 @@ const DetailService = () => {
     <>
       <SideButton
         icon={<EditFilled />}
-        route={`/service/update/${detailService.id}`}
+        route={`/service/update/${detailService?.id}`}
         textTop="Cập nhật"
         textBottom="danh sách"
       />
